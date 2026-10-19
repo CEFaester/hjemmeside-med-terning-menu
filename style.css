@@ -101,17 +101,17 @@ body, html {
 }
 
 .cube__menu-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: darkred;
 }
 
-/* Modifier-klasse for indholdssiderne, så man kan se de kan klikkes på */
+
 .content-face {
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .content-face:hover {
-  background-color: rgba(255, 255, 255, 0.15); /* Gør siden lidt lysere når musen er over */
+  background: darkred;
 }
 
 .content-face p {
