@@ -5,8 +5,8 @@
   --color-text: #f8fafc;
   --color-cube-face: red;
 
-  --cube-size: 250px; /* Størrelsen på terningen */
-  --half-size: calc(var(--cube-size) / 2); /* Bruges til at skubbe siderne præcis en halv terning ud */
+  --cube-size: 250px;
+  --half-size: calc(var(--cube-size) / 2);
 }
 
 body, html {

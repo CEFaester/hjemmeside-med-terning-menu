@@ -1,4 +1,15 @@
 const cube = document.getElementById('cube');
+const allPages = document.querySelectorAll('.page-content');
+
+
+function showContent(targetId) {
+  allPages.forEach(page => {
+    page.classList.remove('is-active');
+  });
+  
+  document.getElementById(targetId).classList.add('is-active');
+}
+
 
 function goToPage(targetFace, event) {
   event.stopPropagation(); 
@@ -15,9 +26,12 @@ function goToPage(targetFace, event) {
   }
 
   cube.style.transform = `translateZ(calc(var(--half-size) * -1)) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-}
 
+  showContent(`content-${targetFace}`);
+}
 
 function returnToMenu() {
   cube.style.transform = `translateZ(calc(var(--half-size) * -1)) rotateX(0deg) rotateY(0deg)`;
+  
+  showContent('content-menu');
 }
