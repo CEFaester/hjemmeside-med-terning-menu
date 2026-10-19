@@ -9,29 +9,43 @@
 <body>
 
   <main class="split-layout">
-    <!-- Venstre side til fremtidigt indhold -->
     <section class="split-layout__content">
       
     </section>
 
-    <!-- Højre side til terningen -->
     <section class="split-layout__menu">
 
-      <!-- BEM Block: Scenen -->
       <div class="scene">
-        <!-- BEM Block: Terningen -->
-        <div class="cube">
-          <!-- BEM Elements med Modifiers for hver side -->
-          <div class="cube__face cube__face--front">Forside</div>
-          <div class="cube__face cube__face--back">Bagside</div>
-          <div class="cube__face cube__face--right">Højre</div>
-          <div class="cube__face cube__face--left">Venstre</div>
-          <div class="cube__face cube__face--top">Top</div>
-          <div class="cube__face cube__face--bottom">Bund</div>
+          <div class="cube" id="cube">
+            
+            <div class="cube__face cube__face--front">
+              <nav class="cube__menu">
+                <button class="cube__menu-item" onclick="goToPage('right', event)">Om mig</button>
+                <button class="cube__menu-item" onclick="goToPage('back', event)">Projekter</button>
+                <button class="cube__menu-item" onclick="goToPage('left', event)">Kontakt</button>
+              </nav>
+            </div>
+
+            <div class="cube__face cube__face--right content-face" onclick="returnToMenu()">
+              <h2>Om mig</h2>
+            </div>
+            
+            <div class="cube__face cube__face--back content-face" onclick="returnToMenu()">
+              <h2>Projekter</h2>
+            </div>
+            
+            <div class="cube__face cube__face--left content-face" onclick="returnToMenu()">
+              <h2>Kontakt</h2>
+            </div>
+            
+            <div class="cube__face cube__face--top content-face" onclick="returnToMenu()">Top</div>
+            <div class="cube__face cube__face--bottom content-face" onclick="returnToMenu()">Bund</div>
+            
+          </div>
         </div>
-      </div>
-      
+
     </section>
+      
   </main>
 
 </body>
