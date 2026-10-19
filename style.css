@@ -3,6 +3,10 @@
   --color-bg-left: #1e293b;
   --color-bg-right: #0f172a;
   --color-text: #f8fafc;
+  --color-cube-face: red;
+
+  --cube-size: 250px; /* Størrelsen på terningen */
+  --half-size: calc(var(--cube-size) / 2); /* Bruges til at skubbe siderne præcis en halv terning ud */
 }
 
 body, html {
@@ -44,3 +48,41 @@ body, html {
   justify-content: center;
   padding: 2rem;
 }
+
+
+.scene {
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: 800px; 
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d; 
+  transform: translateZ(calc(var(--half-size) * -1)); 
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cube__face {
+  position: absolute;
+  width: var(--cube-size);
+  height: var(--cube-size);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  
+  background-color: var(--color-cube-face);
+  border: 2px solid orange;
+}
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(var(--half-size)); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(var(--half-size)); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(var(--half-size)); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(var(--half-size)); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(var(--half-size)); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(var(--half-size)); }
