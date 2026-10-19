@@ -69,6 +69,8 @@ body, html {
   position: absolute;
   width: var(--cube-size);
   height: var(--cube-size);
+  flex-direction: column;
+  text-align: center;
 
   display: flex;
   align-items: center;
@@ -78,6 +80,44 @@ body, html {
   
   background-color: var(--color-cube-face);
   border: 2px solid orange;
+}
+
+.cube__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+}
+
+.cube__menu-item {
+  background: transparent;
+  color: var(--color-text);
+  border: none;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.cube__menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Modifier-klasse for indholdssiderne, så man kan se de kan klikkes på */
+.content-face {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.content-face:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Gør siden lidt lysere når musen er over */
+}
+
+.content-face p {
+  font-size: 1rem;
+  font-weight: normal;
+  opacity: 0.7;
 }
 
 .cube__face--front  { transform: rotateY(  0deg) translateZ(var(--half-size)); }
