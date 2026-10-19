@@ -50,6 +50,39 @@ body, html {
 }
 
 
+.page-content {
+  display: none; 
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.page-content.is-active {
+  display: block;
+}
+
+.page-content h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.page-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .scene {
   width: var(--cube-size);
   height: var(--cube-size);
