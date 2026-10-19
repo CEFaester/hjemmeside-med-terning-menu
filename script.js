@@ -18,6 +18,7 @@ function goToPage(targetFace, event) {
   let rotateY = 0;
 
   switch (targetFace) {
+    case 'front': rotateX = 0;    rotateY = 0;    break;
     case 'right': rotateY = -90;  break;
     case 'back':  rotateY = -180; break;
     case 'left':  rotateY = 90;   break;
@@ -32,6 +33,4 @@ function goToPage(targetFace, event) {
 
 function returnToMenu() {
   cube.style.transform = `translateZ(calc(var(--half-size) * -1)) rotateX(0deg) rotateY(0deg)`;
-  
-  showContent('content-menu');
 }
