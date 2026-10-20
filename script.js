@@ -34,7 +34,7 @@ function updateCubeTransform() {
   cube.style.transform = `translateZ(calc(var(--half-size) * -1)) rotateX(${finalX}deg) rotateY(${finalY}deg) rotateZ(${currentBaseZ}deg)`;
 }
 
-function goToPage(targetFace, event) {
+function goToPage(targetFace, event, isSwipe = false) {
   if (event) {
     event.stopPropagation(); 
   }
@@ -53,30 +53,36 @@ function goToPage(targetFace, event) {
     case 'bottom': baseRotateX = 90;   baseRotateY = 0;    break;
   }
 
-  let targetX = baseRotateX + getRandomSpins();
-  let targetY = baseRotateY + getRandomSpins();
+  let extraSpinsX = isSwipe ? 0 : getRandomSpins();
+  let extraSpinsY = isSwipe ? 0 : getRandomSpins();
+
+  let targetX = baseRotateX + extraSpinsX;
+  let targetY = baseRotateY + extraSpinsY;
 
   currentBaseX = targetX + getRandomTilt();
   currentBaseY = targetY + getRandomTilt();
   currentBaseZ = getRandomTilt(); 
 
-  cube.style.transition = 'transform 1.4s ease-in-out';
+  cube.style.transition = isSwipe ? 'transform 0.6s ease-out' : 'transform 1.4s ease-in-out';
   updateCubeTransform();
   
   showContent(`content-${targetFace}`);
 }
 
-function returnToMenu() {
+function returnToMenu(isSwipe = false) {
   currentFace = 'front';
   
-  let targetX = 0 + getRandomSpins();
-  let targetY = 0 + getRandomSpins();
+  let extraSpinsX = isSwipe ? 0 : getRandomSpins();
+  let extraSpinsY = isSwipe ? 0 : getRandomSpins();
+  
+  let targetX = 0 + extraSpinsX;
+  let targetY = 0 + extraSpinsY;
   
   currentBaseX = targetX + getRandomTilt();
   currentBaseY = targetY + getRandomTilt();
   currentBaseZ = getRandomTilt();
 
-  cube.style.transition = 'transform 1.4s ease-in-out';
+  cube.style.transition = isSwipe ? 'transform 0.6s ease-out' : 'transform 1.4s ease-in-out';
   updateCubeTransform();
   showContent('content-front');
 }
@@ -188,9 +194,9 @@ function handleSwipeDirection(direction) {
   }
 
   if (nextFace === 'front') {
-    returnToMenu();
+    returnToMenu(true);
   } else {
-    goToPage(nextFace);
+    goToPage(nextFace, null, true);
   }
 }
 
