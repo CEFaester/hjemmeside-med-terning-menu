@@ -165,3 +165,32 @@ body, html {
 .cube__face--left   { transform: rotateY(-90deg) translateZ(var(--half-size)); }
 .cube__face--top    { transform: rotateX( 90deg) translateZ(var(--half-size)); }
 .cube__face--bottom { transform: rotateX(-90deg) translateZ(var(--half-size)); }
+
+@media (max-width: 768px) {
+
+  .split-layout {
+    flex-direction: column;
+  }
+
+  :root {
+    --cube-size: 180px;
+  }
+
+  .split-layout__content {
+    margin: 0.5rem 0.5rem 0.25rem 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .split-layout__menu {
+    margin: 0.25rem 0.5rem 0.5rem 0.5rem;
+    padding: 1rem;
+  }
+
+  .page-content h1 {
+    font-size: 2rem;
+  }
+
+  .cube__face {
+    font-size: 1.2rem;
+  }
+}
