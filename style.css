@@ -193,4 +193,13 @@ body, html {
   .cube__face {
     font-size: 1.2rem;
   }
+
+  .cube__menu {
+    gap: 0.1rem;
+  }
+
+  .cube__menu-item {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
 }
