@@ -1,5 +1,6 @@
 
 :root {
+  --color-background: #0f172a;
   --color-bg-left: #1e293b;
   --color-bg-right: #0f172a;
   --color-text: #f8fafc;
@@ -16,6 +17,7 @@ body, html {
   font-family: sans-serif;
   color: var(--color-text);
   box-sizing: border-box;
+  background-color: var(--color-background);
 }
 
 *, *::before, *::after {
@@ -30,13 +32,15 @@ body, html {
 }
 
 .split-layout__content {
-  flex: 1;
+  flex: 2;
   background-color: var(--color-bg-left);
   
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  border-radius: 20px;
+  margin: .5rem;
 }
 
 .split-layout__menu {
@@ -47,6 +51,8 @@ body, html {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  border-radius: 20px;
+  margin: .5rem;
 }
 
 
