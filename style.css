@@ -166,6 +166,17 @@ body, html {
 .cube__face--top    { transform: rotateX( 90deg) translateZ(var(--half-size)); }
 .cube__face--bottom { transform: rotateX(-90deg) translateZ(var(--half-size)); }
 
+
+@keyframes pulse-effect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.scene.is-pulsing {
+  animation: pulse-effect 0.4s ease-in-out;
+}
+
 @media (max-width: 768px) {
 
   .split-layout {

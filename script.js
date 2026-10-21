@@ -11,6 +11,14 @@ let mouseOffsetY = 0;
 
 let currentFace = 'front'; 
 
+function triggerPulse() {
+  scene.classList.remove('is-pulsing');
+  
+  void scene.offsetWidth; 
+  
+  scene.classList.add('is-pulsing');
+}
+
 function showContent(targetId) {
   allPages.forEach(page => {
     page.classList.remove('is-active');
@@ -37,6 +45,10 @@ function updateCubeTransform() {
 function goToPage(targetFace, event, isSwipe = false) {
   if (event) {
     event.stopPropagation(); 
+  }
+
+  if (!isSwipe) {
+    triggerPulse();
   }
   
   currentFace = targetFace; 
@@ -70,6 +82,10 @@ function goToPage(targetFace, event, isSwipe = false) {
 }
 
 function returnToMenu(isSwipe = false) {
+  if (!isSwipe) {
+    triggerPulse();
+  }
+
   currentFace = 'front';
   
   let extraSpinsX = isSwipe ? 0 : getRandomSpins();
