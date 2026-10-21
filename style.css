@@ -166,6 +166,20 @@ body, html {
 .cube__face--top    { transform: rotateX( 90deg) translateZ(var(--half-size)); }
 .cube__face--bottom { transform: rotateX(-90deg) translateZ(var(--half-size)); }
 
+/* Gør at SVG'en fylder hele terningens side */
+.stretched-text {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Får SVG-teksten til at opføre sig som normal tekst */
+.stretched-text text {
+  fill: var(--color-text); /* Bruger den farve du allerede har defineret */
+  font-family: inherit;    /* Arver din valgte font */
+  font-weight: bold;
+}
+
 
 @keyframes pulse-effect {
   0% { transform: scale(1); }

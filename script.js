@@ -27,7 +27,7 @@ function showContent(targetId) {
 }
 
 function getRandomTilt() {
-  return (Math.random() * 16) - 16; 
+  return (Math.random() * 16) - 10; 
 }
 
 function getRandomSpins() {
@@ -65,17 +65,11 @@ function goToPage(targetFace, event, isSwipe = false) {
     case 'bottom': baseRotateX = 90;   baseRotateY = 0;    break;
   }
 
-  let extraSpinsX = isSwipe ? 0 : getRandomSpins();
-  let extraSpinsY = isSwipe ? 0 : getRandomSpins();
-
-  let targetX = baseRotateX + extraSpinsX;
-  let targetY = baseRotateY + extraSpinsY;
-
-  currentBaseX = targetX + getRandomTilt();
-  currentBaseY = targetY + getRandomTilt();
+  currentBaseX = baseRotateX + getRandomTilt();
+  currentBaseY = baseRotateY + getRandomTilt();
   currentBaseZ = getRandomTilt(); 
 
-  cube.style.transition = isSwipe ? 'transform 0.6s ease-out' : 'transform 1.4s ease-in-out';
+  cube.style.transition = isSwipe ? 'transform 0.6s ease-out' : 'transform 0.8s ease-in-out';
   updateCubeTransform();
   
   showContent(`content-${targetFace}`);
@@ -88,14 +82,8 @@ function returnToMenu(isSwipe = false) {
 
   currentFace = 'front';
   
-  let extraSpinsX = isSwipe ? 0 : getRandomSpins();
-  let extraSpinsY = isSwipe ? 0 : getRandomSpins();
-  
-  let targetX = 0 + extraSpinsX;
-  let targetY = 0 + extraSpinsY;
-  
-  currentBaseX = targetX + getRandomTilt();
-  currentBaseY = targetY + getRandomTilt();
+  currentBaseX = 0 + getRandomTilt();
+  currentBaseY = 0 + getRandomTilt();
   currentBaseZ = getRandomTilt();
 
   cube.style.transition = isSwipe ? 'transform 0.6s ease-out' : 'transform 1.4s ease-in-out';
